@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Joke Generator | V!n</title>
+	<meta http-equiv="refresh" content="30">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/18fc5b7198.js" crossorigin="anonymous"></script>
+	<link rel="shortcut icon" type="image/ico" href="./favicon.ico">
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+			font-family: consolas;
+		}
+
+		body{
+			min-height: 100vh;
+			display: flex;
+			background: linear-gradient(45deg,#F0FBCD,#75AFC7);
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			width: 80%;
+			margin: 20px auto;
+			overflow: hidden;
+		}
+
+		header{
+			position: absolute;
+			top: 0;
+			margin: 40px auto;
+			text-align:center;
+			color: blue;
+			font-size: 20px;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+
+		h1{
+			color: red;
+		}
+
+		h3{
+			color:green;
+			margin: 20px;
+		}
+	</style>
+
+</head>
+<body>
+	<header>Auto jokes generate</header>	
+	
+	<h1 id="setup"></h1>
+	<h3 id="punchline"></h3>
+
+
+
+<script>
+const joke="https://official-joke-api.appspot.com/random_joke";
+
+
+	async function getjoke(){
+
+		const response = await fetch(joke);
+		const data = await response.json();
+		const jokerand=(data);
+
+
+		const setup=data.setup;
+		const punch=data.punchline;
+		
+
+		const set=document.getElementById('setup');
+		const punc=document.getElementById('punchline');
+
+		set.innerHTML=setup;
+		punc.innerHTML=punch;
+
+	}
+
+
+	getjoke()
+
+
+</script>
+</body>
+</html>
